@@ -39,7 +39,7 @@ $btn-primary-color: #ffffff; */
 .login-form {
   max-width: 400px;
   margin-top: 0 auto;
-  padding: 5px 20px 0px 20px; /* Arriba 10px, derecha 20px, abajo 15px, izquierda 30px */
+  padding: 20px 20px 40px 20px; /* Arriba 10px, derecha 20px, abajo 15px, izquierda 30px */
   border-radius: 5px;
   border: 1px solid transparent;
   transition: border 0.4s;
@@ -73,13 +73,6 @@ $btn-primary-color: #ffffff; */
         background-color: #8a0000; 
       }
   }
-  a { 
-    color: #ff0000; 
-    &:hover { 
-      color: #ff0000; 
-      text-decoration: none; 
-    }
-}
 }
 .name-input-container {
   display: flex;
