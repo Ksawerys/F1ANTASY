@@ -1,0 +1,115 @@
+@import "~bootstrap/scss/bootstrap";
+
+::-webkit-scrollbar {
+    width: 12px; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #ff0000; 
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #f0f0f0; 
+  }
+  
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #c80000; 
+  }
+  
+  ::-webkit-scrollbar-button {
+    display: none; 
+  }
+  
+  ::-webkit-scrollbar-corner {
+    background: transparent; 
+  }
+
+
+// $body-bg: #ffffff;
+// $body-color: #ff0000;
+// $btn-primary-bg: #ff0000;
+// $btn-primary-color: #ffffff;
+
+.container {
+  margin-top: 119px;
+  margin-right: 0px;
+}   
+
+.login-form {
+  max-width: 400px;
+  margin-top: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  transition: border 0.4s;
+  &:hover { 
+    border: 1px solid #ff0000;
+    transition: border 0.4s;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }  
+  
+  h2 {
+    color: #ff0000;
+  }
+
+  .form-label {
+    color: #ff0000;
+  }
+
+  .btn {
+    &.btn-danger {
+      background-color: #ff0000;
+      transition: background-color 0.4s;
+      color: #ffffff;
+      border: none;
+    }
+    &:hover {
+        background-color: #e40000;
+        border: 12px #e40000;
+         
+      }
+      &:active {
+        background-color: #8a0000; 
+      }
+  }
+  a { 
+    color: #ff0000; 
+    &:hover { 
+      color: #ff0000; 
+      text-decoration: none; 
+    }
+}
+
+}
+
+.redes-sociales {
+    text-align: center;
+    z-index: 2; 
+    position: absolute;
+    margin-top: 255px;
+    margin-left: 622px;
+}
+
+.red-social-link {
+    margin: 10px;
+    color: #3a0000; 
+    font-size: 34px; 
+    text-decoration: none;
+    transition: color 0.4s;
+}
+
+.red-social-link:hover {
+    color: white;
+    transition: color 0.4s;
+}
+
+
+footer p{
+    color: white; 
+    font-size: 16px; 
+    margin-top: 270px;
+    margin-left: 20px;
+}
+  
+  
