@@ -32,7 +32,7 @@ $btn-primary-bg: #ff0000;
 $btn-primary-color: #ffffff; */
 
 .container {
-  margin-top: 30px;
+  margin-top: 20px;
   margin-right: 0px;
 }   
 
@@ -78,7 +78,7 @@ $btn-primary-color: #ffffff; */
   display: flex;
   flex-direction: row;
 }
-.name-input-container input{
+.name-input-container label{
   margin-right: 10px;
 }
 .name-container{
@@ -99,7 +99,7 @@ $btn-primary-color: #ffffff; */
 
 .red-social-link {
     margin: 10px;
-    color: #3a0000; 
+    color: #610000; 
     font-size: 34px; 
     text-decoration: none;
     transition: color 0.4s;

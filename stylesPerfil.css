@@ -12005,8 +12005,12 @@ $body-color: #ff0000;
 $btn-primary-bg: #ff0000;
 $btn-primary-color: #ffffff; */
 .container {
-  margin-top: 20px;
+  margin-top: 24px;
   margin-right: 0px;
+}
+
+.text-center {
+  margin-bottom: 30px;
 }
 
 .login-form {
@@ -12042,13 +12046,14 @@ $btn-primary-color: #ffffff; */
   background-color: #8a0000;
 }
 
-.name-input-container {
+.data-container {
   display: flex;
   flex-direction: row;
 }
 
-.name-input-container label {
-  margin-right: 10px;
+.data {
+  margin-right: 110px;
+  color: black;
 }
 
 .name-container {
@@ -12090,4 +12095,4 @@ footer p {
 
 footer {
   margin-top: -25px;
-}/*# sourceMappingURL=stylesRegistro.css.map */
+}/*# sourceMappingURL=stylesPerfil.css.map */
