@@ -15,7 +15,26 @@ buttonIniciarSesion.addEventListener('click', function () {
         inputPassword.style.borderColor = "red"
         inputPassword.style.borderWidth = "3px"
     }
+
+    if(login(usuario,inputCorreo.value,inputPassword.value)){
+        //Inicio sesion correcto. 
+    }
+
 })
+
+function login(usuario,checkEmail,checkPassword){
+    if(usuario.correo == checkEmail){
+        if(usuario.password == checkPassword){
+            return true
+        }else{
+            alert("Contraseña incorrecta")
+            return false
+        }
+    }else{
+        alert("Email no encontrado")
+        return false
+    }
+}
 
 function validPassword(password) {
     var expresionRegular = /^[\w*#$]{6,12}$/      
