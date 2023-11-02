@@ -1,4 +1,4 @@
-import { Persona } from "./Clases.js";
+import { Persona } from "./Clases.js"
 
 var inputNombre = document.getElementById('name')
 var inputApellido = document.getElementById('sname')
