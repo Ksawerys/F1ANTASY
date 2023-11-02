@@ -1,4 +1,4 @@
-//import { Persona } from "./Clases"
+import { Persona } from "./Clases.js";
 
 var inputNombre = document.getElementById('name')
 var inputApellido = document.getElementById('sname')
@@ -96,12 +96,8 @@ function passwordVerified(passwordVerified,password){
 }
 
 inputPassword.addEventListener("input", function() {
-    if(validPassword(inputPassword.value)){
-        console.log("password apta")
-    }else{
-        console.log("password no apta")
-    }
-});
+    validPassword(inputPassword.value)    
+})
 
 
 
@@ -113,6 +109,13 @@ botonRegistrarse.addEventListener("click", function() {
     var passwordCorrect = validPassword(inputPassword.value)
     var passwordVerifiedCorrect = passwordVerified(inputPasswordVerified.value,inputPassword.value)
 
-    console.log("buenas")
+    if(nombreCorrecto && apellidoCorrecto && correoCorrecto && nickCorrecto && passwordCorrect && passwordVerifiedCorrect){
+        var usuario = new Persona(inputNombre.value,inputApellido.value,inputNick.value,inputEmail.value,inputPassword.value)
+
+        localStorage.setItem("user",JSON.stringify(usuario))
+        // console.log("Persona guardada correctamente")
+        window.location.href = "../PantallaInicial.html"
+    }
+    
   
 });
