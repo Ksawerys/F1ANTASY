@@ -1,15 +1,15 @@
 import { GranPremio, Persona, Piloto } from "./Clases.js";
 
 const pilotosF1 = [
-    new Piloto(1, "Lewis", "Hamilton", "Reino Unido", 0, "libre"),
-    new Piloto(2, "Max", "Verstappen", "Países Bajos", 0, "libre"),
-    new Piloto(3, "Valtteri", "Bottas", "Finlandia", 0, "libre"),
-    new Piloto(4, "Sergio", "Pérez", "México", 0, "libre"),
+    new Piloto(1, "Lewis", "Hamilton", "Reino Unido", 0, "ocupado"),
+    new Piloto(2, "Max", "Verstappen", "Países Bajos", 0, "reserva"),
+    new Piloto(3, "Valtteri", "Bottas", "Finlandia", 0, "ocupado"),
+    new Piloto(4, "Sergio", "Pérez", "México", 0, "reserva"),
     new Piloto(5, "Lando", "Norris", "Reino Unido", 0, "libre"),
     new Piloto(6, "Nico", "Hulkenberg", "Alemania", 0, "libre"),
-    new Piloto(7, "Carlos", "Sainz", "España", 0, "libre"),
+    new Piloto(7, "Carlos", "Sainz", "España", 0, "reserva"),
     new Piloto(8, "Charles", "Leclerc", "Mónaco", 0, "libre"),
-    new Piloto(9, "Fernando", "Alonso", "España", 0, "libre"),
+    new Piloto(9, "Fernando", "Alonso", "España", 0, "ocupado"),
     new Piloto(10, "Esteban", "Ocon", "Francia", 0, "libre"),
     new Piloto(11, "Nyck", "De Vries", "Paises Bajos", 0, "libre"),
     new Piloto(12, "Lance", "Stroll", "Canadá", 0, "libre"),
@@ -54,5 +54,7 @@ localStorage.setItem('GranPremiosF1',JSON.stringify(granPremiosF1))
 
 
 var usuario = localStorage.getItem("user")
-var bot1 = new Persona("Marta","Sanchez","martitaGamer","marta@gmail.com","marta1234")
-var bot2 = new Persona("Laura","Diaz","lauritaGamer","laura@gmail.com","laura1234")
+var bot1 = new Persona("Marta","Sanchez","martitaGamer","marta@gmail.com","marta1234",[pilotosF1[2],pilotosF1[3]])
+var bot2 = new Persona("Laura","Diaz","lauritaGamer","laura@gmail.com","laura1234",[pilotosF1[0],pilotosF1[1]])
+usuario.pilotos = [pilotosF1[8],pilotosF1[6]]
+localStorage.setItem("user",JSON.stringify(usuario))
