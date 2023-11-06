@@ -17,7 +17,7 @@ buttonIniciarSesion.addEventListener('click', function () {
     }
 
     if(login(usuario,inputCorreo.value,inputPassword.value)){
-        //Inicio sesion correcto. 
+        window.location.href = "../PantallaInicio.html"
     }
 
 })
