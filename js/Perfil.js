@@ -1,8 +1,21 @@
-var usuario = JSON.parse(localStorage.getItem("user"))
+let usuario = JSON.parse(localStorage.getItem("user"))
 
-var nombreLabel = document.getElementById("nombreLabel")
-var apellidoLabel = document.getElementById("apellidoLabel")
-var nickLabel = document.getElementById("nickLabel")
-var emailLabel = document.getElementById("emailLabel")
-var nombreLabel = document.getElementById("nombreLabel")
+let nombreLabel = document.getElementById("nombreLabel")
+let apellidoLabel = document.getElementById("apellidoLabel")
+let nickLabel = document.getElementById("nickLabel")
+let emailLabel = document.getElementById("emailLabel")
 
+
+
+
+
+    
+
+
+
+window.addEventListener('DOMContentLoaded', function (){
+    nombreLabel.textContent = usuario.nombre
+    apellidoLabel.textContent = usuario.apellidos
+    nickLabel.textContent = usuario.nick
+    emailLabel.textContent = usuario.correo
+});

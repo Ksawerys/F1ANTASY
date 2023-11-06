@@ -1,7 +1,7 @@
 export class Persona{
     constructor(nombre,apellidos,nick,correo,password,pilotos){        
         this.nombre = nombre
-        this.apellidos = apellidos,
+        this.apellidos = apellidos
         this.nick = nick
         this.correo = correo
         this.password = password

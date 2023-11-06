@@ -53,18 +53,15 @@ localStorage.setItem('PilotosF1',JSON.stringify(pilotosF1))
 localStorage.setItem('GranPremiosF1',JSON.stringify(granPremiosF1))
 
 
-var usuario =JSON.parse(localStorage.getItem("user"))
-var bot1 = new Persona("Marta","Sanchez","martitaGamer","marta@gmail.com","marta1234",[pilotosF1[2],pilotosF1[3]])
-var bot2 = new Persona("Laura","Diaz","lauritaGamer","laura@gmail.com","laura1234",[pilotosF1[0],pilotosF1[1]])
-if (typeof usuario !== 'object') {
-    // Si no es un objeto, inicializa usuario como un objeto con la propiedad 'pilotos'
-    usuario = { pilotos: [] };
-  }
+let usuario = JSON.parse(localStorage.getItem("user"))
+let bot1 = new Persona("Marta","Sanchez","martitaGamer","marta@gmail.com","marta1234",[pilotosF1[2],pilotosF1[3]])
+let bot2 = new Persona("Laura","Diaz","lauritaGamer","laura@gmail.com","laura1234",[pilotosF1[0],pilotosF1[1]])
+
 if (!Array.isArray(usuario.pilotos)) {
     usuario.pilotos = [];
   }
-usuario.pilotos.push(pilotosF1[8]) 
-usuario.pilotos.push(pilotosF1[6])
+usuario.pilotos = [pilotosF1[8],pilotosF1[6]]
+
 
 
 localStorage.setItem("user",JSON.stringify(usuario))
