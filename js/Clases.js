@@ -1,14 +1,16 @@
 export class Persona{
-    constructor(nombre,apellidos,nick,correo,password){
+    constructor(nombre,apellidos,nick,correo,password,pilotos){        
         this.nombre = nombre
         this.apellidos = apellidos,
         this.nick = nick
         this.correo = correo
         this.password = password
+        this.pilotos = pilotos
     }
+    
 }
 
-export class GranPermio{
+export class GranPremio{
     constructor(id,nombre,posiciones){
         this.id = id,
         this.nombre = nombre,
