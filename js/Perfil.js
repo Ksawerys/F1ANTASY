@@ -9,7 +9,7 @@ let inputPassword = document.getElementById("nuevaPass")
 let inputPasswordVerified = document.getElementById("nuevaPassValid")
 
 function validPassword(password) {
-    var expresionRegular = /^[\w*#$]{6,12}$/      
+    let expresionRegular = /^[\w*#$]{6,12}$/      
     if (expresionRegular.test(password)) {
         inputPassword.style.borderColor = ""
         inputPassword.style.borderWidth = "1px"
@@ -53,13 +53,10 @@ botonCambio.addEventListener("click", function() {
     let passwordVerifiedCorrect = passwordVerified(inputPasswordVerified.value,inputPassword.value)
 
     if(passwordCorrect && passwordVerifiedCorrect){
-        usuario.password = passwordCorrect
+        usuario.password = inputPassword.value
 
         localStorage.setItem("user",JSON.stringify(usuario))
-        // console.log("Persona guardada correctamente")
-        window.location.href = "../PantallaInicial.html"
-    }else{
-        alert("No coinciden las contrase;as")
+        alert("Contraseña actualizada con exito.")
     }
     
   

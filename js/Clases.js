@@ -1,4 +1,4 @@
-export class Persona{
+export class Persona{    
     constructor(nombre,apellidos,nick,correo,password,pilotos){        
         this.nombre = nombre
         this.apellidos = apellidos
