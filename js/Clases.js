@@ -1,11 +1,12 @@
 export class Persona{    
-    constructor(nombre,apellidos,nick,correo,password,pilotos){        
+    constructor(nombre,apellidos,nick,correo,password,pilotos,puntos){        
         this.nombre = nombre
         this.apellidos = apellidos
         this.nick = nick
         this.correo = correo
         this.password = password
         this.pilotos = pilotos
+        this.puntos = puntos
     }
     
 }

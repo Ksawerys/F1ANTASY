@@ -76,8 +76,8 @@ window.addEventListener('DOMContentLoaded', function (){
     
 
     let usuario = JSON.parse(localStorage.getItem("user"))
-    let bot1 = new Persona("Marta","Sanchez","martitaGamer","marta@gmail.com","marta1234",[pilotosF1[2],pilotosF1[3]])
-    let bot2 = new Persona("Laura","Diaz","lauritaGamer","laura@gmail.com","laura1234",[pilotosF1[0],pilotosF1[1]])
+    let bot1 = new Persona("Marta","Sanchez","martitaGamer","marta@gmail.com","marta1234",[pilotosF1[2],pilotosF1[3]],0)
+    let bot2 = new Persona("Laura","Diaz","lauritaGamer","laura@gmail.com","laura1234",[pilotosF1[0],pilotosF1[1]],0)
     if (!Array.isArray(usuario.pilotos)) {
         usuario.pilotos = [];
     }

@@ -110,7 +110,7 @@ botonRegistrarse.addEventListener("click", function() {
     let passwordVerifiedCorrect = passwordVerified(inputPasswordVerified.value,inputPassword.value)
 
     if(nombreCorrecto && apellidoCorrecto && correoCorrecto && nickCorrecto && passwordCorrect && passwordVerifiedCorrect){
-        let usuario = new Persona(inputNombre.value,inputApellido.value,inputNick.value,inputEmail.value,inputPassword.value,[])
+        let usuario = new Persona(inputNombre.value,inputApellido.value,inputNick.value,inputEmail.value,inputPassword.value,[],0)
 
         localStorage.setItem("user",JSON.stringify(usuario))
         // console.log("Persona guardada correctamente")
