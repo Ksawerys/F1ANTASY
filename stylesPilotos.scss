@@ -1,0 +1,17 @@
+@import "~bootstrap/scss/bootstrap";
+
+.card {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+  img{
+    border-radius: 1%; 
+  }
+  body {
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+  }
+  
+  body::-webkit-scrollbar {
+    display: none; 
+  }
