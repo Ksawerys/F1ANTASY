@@ -1,12 +1,12 @@
 import { Persona } from "./Clases.js"
 
-var inputNombre = document.getElementById('name')
-var inputApellido = document.getElementById('sname')
-var inputNick = document.getElementById('nick')
-var inputEmail = document.getElementById('email')
-var inputPassword = document.getElementById('password')
-var inputPasswordVerified = document.getElementById('passwordVerified')
-var botonRegistrarse = document.getElementById("registrarsePulsado");
+let inputNombre = document.getElementById('name')
+let inputApellido = document.getElementById('sname')
+let inputNick = document.getElementById('nick')
+let inputEmail = document.getElementById('email')
+let inputPassword = document.getElementById('password')
+let inputPasswordVerified = document.getElementById('passwordVerified')
+let botonRegistrarse = document.getElementById("registrarsePulsado");
 
 
 
@@ -14,8 +14,8 @@ var botonRegistrarse = document.getElementById("registrarsePulsado");
 
 
 function validNombre(nombre) {
-    var expresionRegular = /^[a-zA-Z]{2,20}$/
-    var correct = expresionRegular.test(nombre)
+    let expresionRegular = /^[a-zA-Z]{2,20}$/
+    let correct = expresionRegular.test(nombre)
     if(correct){
         inputNombre.style.borderColor = ""
         inputNombre.style.borderWidth = "1px"
@@ -28,8 +28,8 @@ function validNombre(nombre) {
 }
 
 function validApellidos(apellido) {
-    var expresionRegular = /^[a-zA-Z]{2,20}$/
-    var correct = expresionRegular.test(apellido)
+    let expresionRegular = /^[a-zA-Z]{2,20}$/
+    let correct = expresionRegular.test(apellido)
     if(correct){
         inputApellido.style.borderColor = ""
         inputApellido.style.borderWidth = "1px"
@@ -43,7 +43,7 @@ function validApellidos(apellido) {
   
 
 function validCorreoElectronico(correo) {    
-    var expresionRegular = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,4}$/     
+    let expresionRegular = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,4}$/     
     if (expresionRegular.test(correo)) {
         inputEmail.style.borderColor = ""
         inputEmail.style.borderWidth = "1px"
@@ -56,7 +56,7 @@ function validCorreoElectronico(correo) {
   }
 
 function validNick(nick) {    
-    var expresionRegular = /^[a-zA-Z0-9_]{4,10}$/      
+    let expresionRegular = /^[a-zA-Z0-9_]{4,10}$/      
     if (expresionRegular.test(nick)) {
         inputNick.style.borderColor = ""
         inputNick.style.borderWidth = "1px"
@@ -71,7 +71,7 @@ function validNick(nick) {
 
 
 function validPassword(password) {
-    var expresionRegular = /^[\w*#$]{6,12}$/      
+    let expresionRegular = /^[\w*#$]{6,12}$/      
     if (expresionRegular.test(password)) {
         inputPassword.style.borderColor = ""
         inputPassword.style.borderWidth = "1px"
@@ -102,15 +102,15 @@ inputPassword.addEventListener("input", function() {
 
 
 botonRegistrarse.addEventListener("click", function() {
-    var nombreCorrecto = validNombre(inputNombre.value)
-    var apellidoCorrecto = validApellidos(inputApellido.value)
-    var correoCorrecto = validCorreoElectronico(inputEmail.value)
-    var nickCorrecto = validNick(inputNick.value)
-    var passwordCorrect = validPassword(inputPassword.value)
-    var passwordVerifiedCorrect = passwordVerified(inputPasswordVerified.value,inputPassword.value)
+    let nombreCorrecto = validNombre(inputNombre.value)
+    let apellidoCorrecto = validApellidos(inputApellido.value)
+    let correoCorrecto = validCorreoElectronico(inputEmail.value)
+    let nickCorrecto = validNick(inputNick.value)
+    let passwordCorrect = validPassword(inputPassword.value)
+    let passwordVerifiedCorrect = passwordVerified(inputPasswordVerified.value,inputPassword.value)
 
     if(nombreCorrecto && apellidoCorrecto && correoCorrecto && nickCorrecto && passwordCorrect && passwordVerifiedCorrect){
-        var usuario = new Persona(inputNombre.value,inputApellido.value,inputNick.value,inputEmail.value,inputPassword.value)
+        let usuario = new Persona(inputNombre.value,inputApellido.value,inputNick.value,inputEmail.value,inputPassword.value,[])
 
         localStorage.setItem("user",JSON.stringify(usuario))
         // console.log("Persona guardada correctamente")
