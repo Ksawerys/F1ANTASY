@@ -1,0 +1,58 @@
+// Importar Bootstrap SCSS si lo tienes instalado
+@import "bootstrap";
+
+// Agregar tus propios estilos aquí
+/* Estilos generales */
+body {
+    background-color: #f7f7f7;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Estilos para los jugadores y bots */
+.player, .bot {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+/* Estilos para la clasificación */
+#rankingList {
+    list-style: none;
+    padding: 0;
+}
+
+#rankingList li {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+#rankingList li:first-child {
+    background-color: #ffc107;
+    font-weight: bold;
+}
+
+#rankingList li span {
+    font-weight: bold;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .player, .bot {
+        text-align: center;
+    }
+}
