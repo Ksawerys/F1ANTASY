@@ -26,11 +26,11 @@
               <svg class="bd-placeholder-img card-img-top" width="100%" height="0" xmlns="http://www.w3.org/2000/svg"
                   role="img" aria-label="Card image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Card image cap</title><rect
                       width="100%" height="100%" fill="#868e96"></rect></svg>
-                      <img src="FotosPilotos/alexander-albon.jpg" alt="Descripción de la imagen">
+                      <img id="pilotoImg" src="FotosPilotos/Alexander.jpg" alt="Descripción de la imagen">
               <div class="card-body">
-                  <h5 class="card-title">Alexander Albon</h5>
-                  <p class="card-text m-0">Jugador</p>
-                  <p class = "card-text">Rol</p>
+                  <h5 class="card-title" id="labelNombre">Alexander Albon</h5>
+                  <p class="card-text m-0" id="labelNombrePlayer">Jugador</p>
+                  <p class = "card-text" id="labelRol">Rol</p>
                   <a href="#" class="stretched-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample1"></a>
               </div>
           </div>
@@ -60,12 +60,12 @@
             <svg class="bd-placeholder-img card-img-top" width="100%" height="0" xmlns="http://www.w3.org/2000/svg"
                 role="img" aria-label="Card image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Card image cap</title><rect
                     width="100%" height="100%" fill="#868e96"></rect></svg>
-                    <img src="FotosPilotos/carlos-sainz.jpg" alt="Descripción de la imagen">
+                    <img id="pilotoImg2" src="FotosPilotos/Carlos.jpg" alt="Descripción de la imagen">
     
             <div class="card-body">
-                <h5 class="card-title">Carlos Sainz</h5>
-                <p class="card-text m-0">Jugador</p>
-                <p class="card-text">Rol</p>
+                <h5 class="card-title" id="labelNombre2">Carlos Sainz</h5>
+                <p class="card-text m-0" id="labelNombrePlayer2">Jugador</p>
+                <p class="card-text" id="labelRol2">Rol</p>
                 <a href="#" class="stretched-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample2"></a>
             </div>
         </div>
@@ -83,12 +83,12 @@
           Some text as placeholder. In real life, you can have the elements you have chosen. Like, text, images, lists, etc.
       </div>
       <div class="dropdown mt-3">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Rol
+        <button id="botonRol1" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Rol
           </button>
-          <ul class="dropdown-menu" style="">
-              <li><a class="dropdown-item" href="#">Titular</a></li>
-              <li><a class="dropdown-item" href="#">Suplente</a></li>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#" onclick="updateButton1('Titular')">Titular</a></li>
+            <li><a class="dropdown-item" href="#" onclick="updateButton1('Suplente')">Suplente</a></li>
           </ul>
       </div>
   </div>
@@ -103,37 +103,18 @@
       Some text as a placeholder. In real life, you can have the elements you have chosen. Like text, images, lists, etc.
     </div>
     <div class="dropdown mt-3">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button id="botonRol2" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         Rol
       </button>
-      <ul class="dropdown-menu" style="">
-        <li><a class="dropdown-item" href="#" onclick="updateButton('Titular')">Titular</a></li>
-        <li><a class="dropdown-item" href="#" onclick="updateButton('Suplente')">Suplente</a></li>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#" onclick="updateButton2('Titular')">Titular</a></li>
+        <li><a class="dropdown-item" href="#" onclick="updateButton2('Suplente')">Suplente</a></li>
       </ul>
     </div>
   </div>
 </div>
-
-<script>
-  function updateButton(text) {
-    const button = document.querySelector("#offcanvasExample2 .btn-secondary");
-    button.textContent = text;
-  }
-</script>
-
-
-  <script>
-      const openOffcanvasButtons = document.querySelectorAll(".btn.btn-primary.stretched-link");
-      
-      openOffcanvasButtons.forEach((button, index) => {
-          const targetOffcanvasId = `#offcanvasExample${index + 1}`;
-          const offcanvas = new bootstrap.Offcanvas(document.querySelector(targetOffcanvasId));
-          
-          button.addEventListener("click", () => {
-              offcanvas.show();
-          });
-      });
-  </script>
+  
+  <script src="./js/Pilotos.js"></script>
   </body>
   </html>
   
