@@ -4,166 +4,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Noticias</title>
-    <link rel="stylesheet" href="stylesClasificacion.css">
+    <link rel="stylesheet" href="stylesInicio.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    
-        
-        <link href="headers.css" rel="stylesheet">
-      </head>
-      <body>
-        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-          <symbol id="check2" viewBox="0 0 16 16">
-            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-          </symbol>
-          <symbol id="circle-half" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
-          </symbol>
-          <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-            <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
-          </symbol>
-          <symbol id="sun-fill" viewBox="0 0 16 16">
-            <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-          </symbol>
-        </svg>
-        <script>
-           (() => {
-             'use strict'
-           
-             const getStoredTheme = () => localStorage.getItem('theme')
-             const setStoredTheme = theme => localStorage.setItem('theme', theme)
-           
-             const getPreferredTheme = () => {
-               const storedTheme = getStoredTheme()
-               if (storedTheme) {
-                 return storedTheme
-               }
-           
-               return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-             }
-           
-             const setTheme = theme => {
-               if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                 document.documentElement.setAttribute('data-bs-theme', 'dark')
-               } else {
-                 document.documentElement.setAttribute('data-bs-theme', theme)
-               }
-             }
-           
-             setTheme(getPreferredTheme())
-           
-             const showActiveTheme = (theme, focus = false) => {
-               const themeSwitcher = document.querySelector('#bd-theme')
-           
-               if (!themeSwitcher) {
-                 return
-               }
-           
-               const themeSwitcherText = document.querySelector('#bd-theme-text')
-               const activeThemeIcon = document.querySelector('.theme-icon-active use')
-               const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
-               const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href')
-           
-               document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
-                 element.classList.remove('active')
-                 element.setAttribute('aria-pressed', 'false')
-               })
-           
-               btnToActive.classList.add('active')
-               btnToActive.setAttribute('aria-pressed', 'true')
-               activeThemeIcon.setAttribute('href', svgOfActiveBtn)
-               const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`
-               themeSwitcher.setAttribute('aria-label', themeSwitcherLabel)
-           
-               if (focus) {
-                 themeSwitcher.focus()
-               }
-             }
-           
-             window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-               const storedTheme = getStoredTheme()
-               if (storedTheme !== 'light' && storedTheme !== 'dark') {
-                 setTheme(getPreferredTheme())
-               }
-             })
-           
-             window.addEventListener('DOMContentLoaded', () => {
-               showActiveTheme(getPreferredTheme())
-           
-               document.querySelectorAll('[data-bs-theme-value]')
-                 .forEach(toggle => {
-                   toggle.addEventListener('click', () => {
-                     const theme = toggle.getAttribute('data-bs-theme-value')
-                     setStoredTheme(theme)
-                     setTheme(theme)
-                     showActiveTheme(theme, true)
-                   })
-                 })
-             })
-           })()
-           </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-    <button class="btn  py-2 dropdown-toggle d-flex align-items-center"
-            id="bd-theme"
-            type="button"
-            aria-expanded="false"
-            data-bs-toggle="dropdown"
-            aria-label="Toggle theme (auto)">
-      <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
-      <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-    </button>
-    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-          Light
-          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-        </button>
-      </li>
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-          Dark
-          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-        </button>
-      </li>
-      <li>
-        <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-          <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
-          Auto
-          <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-        </button>
-      </li>
-    </ul>
-  </div>    
+</head>
+
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+<script>
+   (() => {
+     'use strict'
+   
+     const getStoredTheme = () => localStorage.getItem('theme')
+     const setStoredTheme = theme => localStorage.setItem('theme', theme)
+   
+     const getPreferredTheme = () => {
+       const storedTheme = getStoredTheme()
+       if (storedTheme) {
+         return storedTheme
+       }
+   
+       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+     }
+   
+     const setTheme = theme => {
+       if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+         document.documentElement.setAttribute('data-bs-theme', 'dark')
+       } else {
+         document.documentElement.setAttribute('data-bs-theme', theme)
+       }
+     }
+   
+     setTheme(getPreferredTheme())
+   
+     const showActiveTheme = (theme, focus = false) => {
+       const themeSwitcher = document.querySelector('#bd-theme')
+   
+       if (!themeSwitcher) {
+         return
+       }
+   
+       const themeSwitcherText = document.querySelector('#bd-theme-text')
+       const activeThemeIcon = document.querySelector('.theme-icon-active use')
+       const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+       const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href')
+   
+       document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+         element.classList.remove('active')
+         element.setAttribute('aria-pressed', 'false')
+       })
+   
+       btnToActive.classList.add('active')
+       btnToActive.setAttribute('aria-pressed', 'true')
+       activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+       const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`
+       themeSwitcher.setAttribute('aria-label', themeSwitcherLabel)
+   
+       if (focus) {
+         themeSwitcher.focus()
+       }
+     }
+   
+     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+       const storedTheme = getStoredTheme()
+       if (storedTheme !== 'light' && storedTheme !== 'dark') {
+         setTheme(getPreferredTheme())
+       }
+     })
+   
+     window.addEventListener('DOMContentLoaded', () => {
+       showActiveTheme(getPreferredTheme())
+   
+       document.querySelectorAll('[data-bs-theme-value]')
+         .forEach(toggle => {
+           toggle.addEventListener('click', () => {
+             const theme = toggle.getAttribute('data-bs-theme-value')
+             setStoredTheme(theme)
+             setTheme(theme)
+             showActiveTheme(theme, true)
+           })
+         })
+     })
+   })()
+   </script>
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle" id="tema">
+      <button class="btn btn-danger py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
-    <div class="custom-text">
-        <span class="first-letter">F</span>ANTASY
-      </div>
-    <div class="container-navbar">
-  <header class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 red-border">
-    <div class="col-md-3 mb-2 mb-md-0">
-        
-    </div>
-
-    <ul class="nav col-12 col-md-auto mb-2 mb-md-0">
-      <li><a href="#" class="nav-link px-2" style="font-weight: bold;">Inicio</a></li>
-      <li><a href="#" class="nav-link px-2" style="font-weight: bold;">Pilotos</a></li>
-      <li><a href="#" class="nav-link px-2" style="font-weight: bold;">Pantalla tus pilotos</a></li>
-      <li><a href="#" class="nav-link px-2 link-secondary" style="font-weight: bold;">Clasificacón</a></li>
-      <li><a href="#" class="nav-link px-2" style="font-weight: bold;">Perfil</a></li>
-      <li><a href="#" class="nav-link px-2" style="font-weight: bold;">Administracion</a></li>
-    </ul>
-
-    <div class="col-md-3 text-center">
-      <button type="button" class="btn btn-danger me-2">Login</button>
-      <button type="button" class="btn btn-danger">Sign-up</button>
-    </div>
-  </header>
+<div class="custom-text">
+<span class="first-letter">F</span>ANTASY
 </div>
+<div class="container-navbar">
+<header class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 red-border">
+<div class="col-md-3 mb-2 mb-md-0">
+
+</div>
+
+<ul class="nav col-12 col-md-auto mb-2 mb-md-0">
+<li><a href="PantallaInicio.html" class="nav-link px-2  link-secondary" style="font-weight: bold;">Inicio</a></li>
+<li><a href="" class="nav-link px-2" style="font-weight: bold;">Pilotos</a></li>
+<li><a href="PantallaPilotos.html" class="nav-link px-2" style="font-weight: bold;">Tus pilotos</a></li>
+<li><a href="Clasificacion.html" class="nav-link px-2" style="font-weight: bold;">Clasificacón</a></li>
+<li><a href="Perfil.html" class="nav-link px-2" style="font-weight: bold;">Perfil</a></li>
+<li><a href="Administracion.html" class="nav-link px-2" style="font-weight: bold;">Administracion</a></li>
+</ul>
+
+<div class="col-md-3 text-center">
+<button type="button" class="btn btn-danger me-2">Login</button>
+<button type="button" class="btn btn-danger">Sign-up</button>
+</div>
+</header>
+</div>
+
     <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
           <div class="carousel-item">
@@ -236,46 +234,18 @@
             <img src="./imgCircuits/Shakir.jpg" alt="Descripción de la imagen" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded" width="500" height="500">
           </div>
         </div>  
-    <section class="container mt-5">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="imagen-noticia.jpg" alt="Imagen de la noticia" class="img-fluid">
-            </div>
-            <div class="col-md-6">
-                <p class="noticia-text">Texto de la noticia aquí.</p>
-                <div class="divider"></div>
-            </div>
-        </div>
-    </section>
-    
-    <footer class="footer text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h4>Enlaces Rápidos</h4>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Noticias</a></li>
-                        <li><a href="#">Calendario</a></li>
-                        <li><a href="#">Resultados</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h4>Social</h4>
-                    <p>Síguenos en las redes sociales:</p>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-                <div class="col-md-4">
-                    <h4>Contacto</h4>
-                    <p>Contáctanos si tienes alguna pregunta:</p>
-                    <a href="mailto:info@formulauno.com">info@formulauno.com</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script type="module" src="./js/PantallaInicio.js"></script>
-    
-</body>
-</html>
+  </body>
+  
+  <footer>
+    <div class="redes-sociales">
+        <a href="mailto:tucorreo@gmail.com" class="red-social-link"><i class="fa fa-envelope"></i></a>
+        <a href="https://twitter.com/tucuenta" class="red-social-link"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/tucuenta/" class="red-social-link"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p href="#" style="z-index: 2; position: absolute;">Si tienes algún problema, porfavor contáctenos via</p>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#ff0000" fill-opacity="1" d="M0,64L120,58.7C240,53,480,43,720,64C960,85,1200,139,1320,165.3L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+    </svg>
+</footer>  
+  </html>
+     
