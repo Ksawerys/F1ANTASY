@@ -14,9 +14,9 @@ export class Persona{
 export class GranPremio{
     nombre
     constructor(id,nombre,desc,longitud,posiciones,disputado){
-        this.id = id,
-        this.desc = desc,
-        this.nombre = nombre,
+        this.id = id
+        this.desc = desc
+        this.nombre = nombre
         this.longitud = longitud
         this.posiciones = posiciones 
         this.disputado = disputado
@@ -25,12 +25,12 @@ export class GranPremio{
 
 export class Piloto{
     constructor(id,nombre,apellidos,puntos,nacionalidad,propiedadJugador,rol){
-        this.id = id,
-        this.nombre = nombre,
-        this.apellidos = apellidos,
-        this.puntos = puntos,
-        this.nacionalidad = nacionalidad,
-        this.propiedadJugador = propiedadJugador,
+        this.id = id
+        this.nombre = nombre
+        this.apellidos = apellidos
+        this.puntos = puntos
+        this.nacionalidad = nacionalidad
+        this.propiedadJugador = propiedadJugador
         this.rol = rol 
     }
 }
