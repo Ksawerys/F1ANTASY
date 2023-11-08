@@ -3,7 +3,7 @@
 
 
 
-window.addEventListener('DOMContentLoaded', function (){
+window.addEventListener('DOMContentLoaded', function (){    
     const buttonRol1 = document.getElementById("botonRol1")
     const buttonRol2 = document.getElementById("botonRol2")
     let usuario = JSON.parse(localStorage.getItem("user"))

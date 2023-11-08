@@ -24,21 +24,18 @@ window.addEventListener('DOMContentLoaded', function (){
     
 
     let usuario = JSON.parse(localStorage.getItem("user"))
-    let bot1 = new Persona("Marta","Sanchez","martitaGamer","marta@gmail.com","marta1234",[pilotosF1[2],pilotosF1[3]],0)
+    let user2 = new Persona(usuario.nombre,usuario.apellidos,usuario.nick,usuario.correo,usuario.password,[pilotosF1[8],pilotosF1[6]],(pilotosF1[8].puntos+pilotosF1[6].puntos))
+    let bot1 = new Persona("Marta","Sanchez","martitaGamer","marta@gmail.com","marta1234",[pilotosF1[2],pilotosF1[3]],(pilotosF1[2].puntos+pilotosF1[3].puntos))
     pilotosF1[2].rol = "Titular"
     pilotosF1[3].rol = "Suplente"
-    let bot2 = new Persona("Laura","Diaz","lauritaGamer","laura@gmail.com","laura1234",[pilotosF1[0],pilotosF1[1]],0)
+    let bot2 = new Persona("Laura","Diaz","lauritaGamer","laura@gmail.com","laura1234",[pilotosF1[0],pilotosF1[1]],(pilotosF1[0].puntos+pilotosF1[1].puntos))
     pilotosF1[0].rol = "Titular"
-    pilotosF1[1].rol = "Suplente"
-    if (!Array.isArray(usuario.pilotos)) {
-        usuario.pilotos = [];
-    }
-    usuario.pilotos = [pilotosF1[8],pilotosF1[6]]
+    pilotosF1[1].rol = "Suplente"    
     pilotosF1[8].rol = "Titular"
     pilotosF1[6].rol = "Suplente"
 
     localStorage.setItem("proximoGranPremioNoDisputado",JSON.stringify(proximoGranPremioNoDisputado))
-    localStorage.setItem("user",JSON.stringify(usuario))
+    localStorage.setItem("user",JSON.stringify(user2))
     localStorage.setItem("bot1",JSON.stringify(bot1))
     localStorage.setItem("bot2",JSON.stringify(bot2))
 })
