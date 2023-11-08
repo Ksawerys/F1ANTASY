@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesTusPilotos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="check2" viewBox="0 0 16 16">
+      <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+    </symbol>
+    <symbol id="circle-half" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+    </symbol>
+    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+      <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    </symbol>
+    <symbol id="sun-fill" viewBox="0 0 16 16">
+      <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+    </symbol>
+  </svg>
+  <script>
+     (() => {
+       'use strict'
+     
+       const getStoredTheme = () => localStorage.getItem('theme')
+       const setStoredTheme = theme => localStorage.setItem('theme', theme)
+     
+       const getPreferredTheme = () => {
+         const storedTheme = getStoredTheme()
+         if (storedTheme) {
+           return storedTheme
+         }
+     
+         return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+       }
+     
+       const setTheme = theme => {
+         if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+           document.documentElement.setAttribute('data-bs-theme', 'dark')
+         } else {
+           document.documentElement.setAttribute('data-bs-theme', theme)
+         }
+       }
+     
+       setTheme(getPreferredTheme())
+     
+       const showActiveTheme = (theme, focus = false) => {
+         const themeSwitcher = document.querySelector('#bd-theme')
+     
+         if (!themeSwitcher) {
+           return
+         }
+     
+         const themeSwitcherText = document.querySelector('#bd-theme-text')
+         const activeThemeIcon = document.querySelector('.theme-icon-active use')
+         const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+         const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href')
+     
+         document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+           element.classList.remove('active')
+           element.setAttribute('aria-pressed', 'false')
+         })
+     
+         btnToActive.classList.add('active')
+         btnToActive.setAttribute('aria-pressed', 'true')
+         activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+         const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`
+         themeSwitcher.setAttribute('aria-label', themeSwitcherLabel)
+     
+         if (focus) {
+           themeSwitcher.focus()
+         }
+       }
+     
+       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+         const storedTheme = getStoredTheme()
+         if (storedTheme !== 'light' && storedTheme !== 'dark') {
+           setTheme(getPreferredTheme())
+         }
+       })
+     
+       window.addEventListener('DOMContentLoaded', () => {
+         showActiveTheme(getPreferredTheme())
+     
+         document.querySelectorAll('[data-bs-theme-value]')
+           .forEach(toggle => {
+             toggle.addEventListener('click', () => {
+               const theme = toggle.getAttribute('data-bs-theme-value')
+               setStoredTheme(theme)
+               setTheme(theme)
+               showActiveTheme(theme, true)
+             })
+           })
+       })
+     })()
+     </script>
+      <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle" id="tema">
+        <button class="btn btn-danger py-2 dropdown-toggle d-flex align-items-center"
+                id="bd-theme"
+                type="button"
+                aria-expanded="false"
+                data-bs-toggle="dropdown"
+                aria-label="Toggle theme (auto)">
+          <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+          <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+              <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+              Light
+              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+              <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+              Dark
+              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+              <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+              Auto
+              <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+  <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+  <div class="custom-text">
+  <span class="first-letter">F</span>ANTASY
+  </div>
+  <div class="container-navbar">
+  <header class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 red-border">
+  <div class="col-md-3 mb-2 mb-md-0">
+  
+  </div>
+  
+  <ul class="nav col-12 col-md-auto mb-2 mb-md-0">
+  <li><a href="PantallaInicio.html" class="nav-link px-2" style="font-weight: bold;">Inicio</a></li>
+  <li><a href="#" class="nav-link px-2" style="font-weight: bold;">Pilotos</a></li>
+  <li><a href="PantallaPilotos.html" class="nav-link px-2  link-secondary" style="font-weight: bold;">Tus pilotos</a></li>
+  <li><a href="Clasificacion.html" class="nav-link px-2" style="font-weight: bold;">Clasificacón</a></li>
+  <li><a  class="nav-link px-2" style="font-weight: bold;">Perfil</a></li>
+  <li><a href="Administracion.html" class="nav-link px-2" style="font-weight: bold;">Administracion</a></li>
+  </ul>
+  
+  <div class="col-md-3 text-center">
+  <button type="button" class="btn btn-danger me-2">Login</button>
+  <button type="button" class="btn btn-danger">Sign-up</button>
+  </div>
+  </header>
+  </div>
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+    <div class="container">
+      <h1><em style="font-weight: bold; color: red;"> Tus </em><em style="font-weight: bold;">PILOTOS </em></h1>
+      <p class="lead">Asigna sus roles y ve la informacionde tus pilotos </p>
+      <br><br><br><br>
+      <div class="row">
+        
+        <style>
+          .card-small {
+              width: 12rem;
+              height: auto; 
+          }
+      </style>
+      
+      <div class="col-md-4">
+          <div class="card card-small mb-3">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="0" xmlns="http://www.w3.org/2000/svg"
+                  role="img" aria-label="Card image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Card image cap</title><rect
+                      width="100%" height="100%" fill="#868e96"></rect></svg>
+                      <img src="FotosPilotos/alexander-albon.jpg" alt="Descripción de la imagen">
+              <div class="card-body">
+                  <h5 class="card-title">Alexander Albon</h5>
+                  <p class="card-text m-0">Jugador</p>
+                  <p class = "card-text">Rol</p>
+                  <a href="#" class="stretched-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample1"></a>
+              </div>
+          </div>
+      </div>
+      
+
+        <style>
+          .card{
+            transition: transform 0.8s ease; /* Añade una transición suave para una animación agradable */
+
+          }
+          .card:hover {
+              transform: scale(1.1); /* Cambia el valor según el grado de agrandamiento deseado */
+              transition: transform 0.8s ease; /* Añade una transición suave para una animación agradable */
+          }
+      </style>
+      
+      <style>
+        .card {
+            width: 12rem; /* Ajusta el ancho de la tarjeta según tu preferencia */
+            height: auto; /* Ajusta la altura automáticamente según el contenido */
+        }
+    </style>
+    
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="0" xmlns="http://www.w3.org/2000/svg"
+                role="img" aria-label="Card image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Card image cap</title><rect
+                    width="100%" height="100%" fill="#868e96"></rect></svg>
+                    <img src="FotosPilotos/carlos-sainz.jpg" alt="Descripción de la imagen">
+    
+            <div class="card-body">
+                <h5 class="card-title">Carlos Sainz</h5>
+                <p class="card-text m-0">Jugador</p>
+                <p class="card-text">Rol</p>
+                <a href="#" class="stretched-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample2"></a>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample1" aria-labelledby="offcanvasExampleLabel1">
+  <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel1">Información 1</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+      <div class="">
+          Some text as placeholder. In real life, you can have the elements you have chosen. Like, text, images, lists, etc.
+      </div>
+      <div class="dropdown mt-3">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Rol
+          </button>
+          <ul class="dropdown-menu" style="">
+              <li><a class="dropdown-item" href="#">Titular</a></li>
+              <li><a class="dropdown-item" href="#">Suplente</a></li>
+          </ul>
+      </div>
+  </div>
+</div>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample2" aria-labelledby="offcanvasExampleLabel2">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel2">Información 2</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="">
+      Some text as a placeholder. In real life, you can have the elements you have chosen. Like text, images, lists, etc.
+    </div>
+    <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Rol
+      </button>
+      <ul class="dropdown-menu" style="">
+        <li><a class="dropdown-item" href="#" onclick="updateButton('Titular')">Titular</a></li>
+        <li><a class="dropdown-item" href="#" onclick="updateButton('Suplente')">Suplente</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  function updateButton(text) {
+    const button = document.querySelector("#offcanvasExample2 .btn-secondary");
+    button.textContent = text;
+  }
+</script>
+
+
+  <script>
+      const openOffcanvasButtons = document.querySelectorAll(".btn.btn-primary.stretched-link");
+      
+      openOffcanvasButtons.forEach((button, index) => {
+          const targetOffcanvasId = `#offcanvasExample${index + 1}`;
+          const offcanvas = new bootstrap.Offcanvas(document.querySelector(targetOffcanvasId));
+          
+          button.addEventListener("click", () => {
+              offcanvas.show();
+          });
+      });
+  </script>
+  </body>
+  <br><br><br><br><br><br><br><br>
+  <footer>
+    <div class="redes-sociales">
+        <a href="mailto:tucorreo@gmail.com" class="red-social-link"><i class="fa fa-envelope"></i></a>
+        <a href="https://twitter.com/tucuenta" class="red-social-link"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/tucuenta/" class="red-social-link"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p href="#" style="z-index: 2; position: absolute;">Si tienes algún problema, porfavor contáctenos via</p>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#ff0000" fill-opacity="1" d="M0,64L120,58.7C240,53,480,43,720,64C960,85,1200,139,1320,165.3L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+    </svg>
+</footer>  
+  </html>
+  

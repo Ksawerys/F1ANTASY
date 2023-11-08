@@ -1,0 +1,45 @@
+@import "~bootstrap/scss/bootstrap";
+
+// Agregar tus propios estilos aquí
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+        
+}
+.nav a {
+    color: red;
+    &:hover {
+        color:rgb(0, 0, 0)
+    }
+
+}
+header{
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+.informacion{
+    margin-left: 10vh;
+}
+
+.custom-text {
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 2px 2px white;
+    margin-left: 3vh;
+    font-size: 18vw;
+    .first-letter {
+      color: red;
+    }
+  }
+  footer {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 0; /* Eliminar el relleno */
+    margin: 0; /* Eliminar los márgenes */
+    text-align: center;
+  }
+  
+  .footer-icons {
+    font-size: 24px;
+  }
+  
