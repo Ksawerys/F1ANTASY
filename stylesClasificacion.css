@@ -11976,24 +11976,7 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.card {
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-}
-
-img {
-  border-radius: 1%;
-}
-
-body {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-body::-webkit-scrollbar {
-  display: none;
-}
-
+/* Estilos generales */
 body {
   font-family: Arial, sans-serif;
 }
@@ -12018,40 +12001,8 @@ header {
   font-style: italic;
   text-shadow: 2px 2px white;
   margin-left: 3vh;
-  font-size: 21vw;
+  font-size: 18vw;
 }
 .custom-text .first-letter {
   color: red;
-}
-
-.redes-sociales {
-  text-align: center;
-  z-index: 2;
-  position: absolute;
-  margin-top: 255px;
-  margin-left: 622px;
-}
-
-.red-social-link {
-  margin: 10px;
-  color: #610000;
-  font-size: 34px;
-  text-decoration: none;
-  transition: color 0.4s;
-}
-
-.red-social-link:hover {
-  color: white;
-  transition: color 0.4s;
-}
-
-footer p {
-  color: white;
-  font-size: 16px;
-  margin-top: 270px;
-  margin-left: 20px;
-}
-
-#tema {
-  z-index: 999;
-}/*# sourceMappingURL=stylesPilotos.css.map */
+}/*# sourceMappingURL=stylesClasificacion.css.map */
