@@ -3,6 +3,8 @@ const personas = [
     JSON.parse(localStorage.getItem("bot1")),
     JSON.parse(localStorage.getItem("bot2"))
   ];
+
+  
   
   personas.sort((a, b) => b.puntos - a.puntos);
   

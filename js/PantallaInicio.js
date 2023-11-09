@@ -28,14 +28,21 @@ document.addEventListener('DOMContentLoaded', function (){
         bot1 = new Persona("Marta","Sanchez","martitaGamer","marta@gmail.com","marta1234",[listPilots[2],listPilots[3]],0)
         listPilots[2].rol = "Titular"
         listPilots[3].rol = "Suplente"
+        listPilots[2].propiedadJugador = "Marta"
+        listPilots[3].propiedadJugador = "Marta"
         bot2 = new Persona("Laura","Diaz","lauritaGamer","laura@gmail.com","laura1234",[listPilots[0],listPilots[1]],0) 
         listPilots[0].rol = "Titular"
-        listPilots[1].rol = "Suplente"  
+        listPilots[1].rol = "Suplente"
+        listPilots[0].propiedadJugador = "Laura"
+        listPilots[1].propiedadJugador = "Laura"  
     }
     if (usuario && Array.isArray(usuario.pilotos) && usuario.pilotos.length === 0) {
         usuario = new Persona(usuario.nombre,usuario.apellidos,usuario.nick,usuario.correo,usuario.password,[listPilots[8],listPilots[6]],0)
         listPilots[8].rol = "Titular"
         listPilots[6].rol = "Suplente" 
+        listPilots[8].propiedadJugador = usuario.nombre
+        listPilots[6].propiedadJugador = usuario.nombre 
+        
     }
     
 
