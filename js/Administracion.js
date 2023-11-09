@@ -51,7 +51,7 @@ botonLanzarCarrera.addEventListener('click',function(){
     
     
     
-
+    localStorage.setItem("encontrado",JSON.stringify(encontrado))
     localStorage.setItem("proximoGranPremioNoDisputado",JSON.stringify(proximoGranPremioNoDisputado))
     localStorage.setItem("user",JSON.stringify(jugadores[0]))
     localStorage.setItem("bot1",JSON.stringify(jugadores[1]))

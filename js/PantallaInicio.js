@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function (){
     let usuario = JSON.parse(localStorage.getItem("user"))
     let bot1 = JSON.parse(localStorage.getItem("bot1"))
     let bot2 = JSON.parse(localStorage.getItem("bot2"))
+    let encontrado = JSON.parse(localStorage.getItem("encontrado"))
+
+     
     
     
     if(listGP == null){
@@ -53,10 +56,20 @@ document.addEventListener('DOMContentLoaded', function (){
         break
         }
     }    
-    proxCarreraLabel.textContent = proximoGranPremioNoDisputado.nombre
-    descProxCarreraLabel.innerHTML = `CIRCUITO: ${proximoGranPremioNoDisputado.desc}<br>
-    LONGITUD: ${proximoGranPremioNoDisputado.longitud} metros<br>`;  
-    imagen.src = `../imgCircuits/${proximoGranPremioNoDisputado.desc}.jpg`    
+
+    
+    if(encontrado == false){
+        proxCarreraLabel.textContent = "No quedan carreras" 
+        descProxCarreraLabel.innerHTML = ``  
+                    
+    } else{
+        proxCarreraLabel.textContent = proximoGranPremioNoDisputado.nombre
+        descProxCarreraLabel.innerHTML = `CIRCUITO: ${proximoGranPremioNoDisputado.desc}<br>
+        LONGITUD: ${proximoGranPremioNoDisputado.longitud} metros<br>`;  
+        imagen.src = `../imgCircuits/${proximoGranPremioNoDisputado.desc}.jpg` 
+    }
+    
+     
        
     
 
