@@ -41,10 +41,10 @@ inputPassword.addEventListener("input", function() {
 
 
 window.addEventListener('DOMContentLoaded', function (){
-    nombreLabel.textContent = usuario.nombre
-    apellidoLabel.textContent = usuario.apellidos
+    nombreLabel.value = usuario.nombre
+    apellidoLabel.value = usuario.apellidos
     nickLabel.textContent = usuario.nick
-    emailLabel.textContent = usuario.correo
+    emailLabel.value = usuario.correo
 });
 
 botonCambio.addEventListener("click", function() {
@@ -53,10 +53,13 @@ botonCambio.addEventListener("click", function() {
     let passwordVerifiedCorrect = passwordVerified(inputPasswordVerified.value,inputPassword.value)
 
     if(passwordCorrect && passwordVerifiedCorrect){
+        usuario.nombre = nombreLabel.value
         usuario.password = inputPassword.value
+        usuario.apellidos = apellidoLabel.value
+        usuario.correo = emailLabel.value
 
         localStorage.setItem("user",JSON.stringify(usuario))
-        alert("Contraseña actualizada con exito.")
+        alert("Nuevos datos guardados con exito")
     }
     
   
