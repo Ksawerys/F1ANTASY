@@ -1,21 +1,30 @@
-window.addEventListener('DOMContentLoaded', function (){
-    let usuario = JSON.parse(localStorage.getItem("user"))
-    let bot1 = JSON.parse(localStorage.getItem("bot1"))
-    let bot2 = JSON.parse(localStorage.getItem("bot2"))
-    
+const personas = [
+    JSON.parse(localStorage.getItem("user")),
+    JSON.parse(localStorage.getItem("bot1")),
+    JSON.parse(localStorage.getItem("bot2"))
+  ];
 
-    const personas = [usuario,bot1,bot2]
-
-    personas.sort((a, b) => b.puntos - a.puntos)
-
-    
-    const rankingList = document.getElementById("rankingList")
-
-    
-    personas.forEach((persona, index) => {
-        const listItem = document.createElement("li")
-        listItem.textContent = `${persona.nombre} - Puntos: ${persona.puntos}`
-        rankingList.appendChild(listItem);
-    });
-
-})
+  
+  
+  personas.sort((a, b) => b.puntos - a.puntos);
+  
+  const topTresPersonas = personas.slice(0, 3);
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const jugadorElements = document.querySelectorAll('.informacion');
+  
+    for (let i = 0; i < jugadorElements.length; i++) {
+      const jugador = topTresPersonas[i];
+      const nombreElement = jugadorElements[i].querySelector('#Nick');
+      const puntuacionElement = jugadorElements[i].querySelector('#Puntuacion');
+      const imagenElement = document.getElementById(`img${i}`)
+  
+      nombreElement.textContent = jugador.nombre;
+      puntuacionElement.textContent = `Puntuacion: ${jugador.puntos}`;
+      
+      // Cambia la ruta de la imagen
+      const imagenSrc = `../Perfiles/${jugador.nombre}.png`;
+      imagenElement.src = imagenSrc;
+    }
+  });
+  

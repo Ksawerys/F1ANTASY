@@ -1,7 +1,7 @@
 import { GranPremio } from "./Clases.js"
 
 export const granPremiosF1 = [
-    new GranPremio(1, 'Gran Premio de Baherin','Shakir',6299, [], false),
+    new GranPremio(1, 'Gran Premio de Bahrein','Shakir',6299, [], false),
     new GranPremio(2, 'Gran Premio de Arabia Saudi', 'Jeddah',6174, [], false),
     new GranPremio(3, 'Gran Premio de Australia', 'Melbourne',5303, [], false),
     new GranPremio(4, 'Gran Premio de Azerbaijan', 'Bakú',6003, [], false),
