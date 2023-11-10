@@ -1,11 +1,11 @@
 import {Persona} from "./Clases.js"
-import { granPremiosF1 } from "./GranPremiosList.js";
-import { pilotosF1 } from "./PilotosList.js";
+import { granPremiosF1 } from "./GranPremiosList.js"
+import { pilotosF1 } from "./PilotosList.js"
 
 
 let proxCarreraLabel = document.getElementById("labelProxCarrera")
 let descProxCarreraLabel = document.getElementById("descLabel")
-const imagen = document.getElementById("imagenCircuit");
+const imagen = document.getElementById("imagenCircuit")
 let proximoGranPremioNoDisputado = null
 
 
@@ -52,10 +52,11 @@ document.addEventListener('DOMContentLoaded', function (){
     
     for (const granPremio of listGP) {
         if (granPremio.disputado == false) {
-        proximoGranPremioNoDisputado = granPremio; 
+        proximoGranPremioNoDisputado = granPremio
         break
         }
     }    
+
 
     
     if(encontrado == false){
