@@ -1,10 +1,10 @@
 import {Persona} from "./Clases.js"
-import { granPremiosF1 } from "./GranPremiosList.js";
-import { pilotosF1 } from "./PilotosList.js";
+import { granPremiosF1 } from "./GranPremiosList.js"
+import { pilotosF1 } from "./PilotosList.js"
 
 let proxCarreraLabel = document.getElementById("labelProxCarrera")
 let descProxCarreraLabel = document.getElementById("descLabel")
-const imagen = document.getElementById("imagenCircuit");
+const imagen = document.getElementById("imagenCircuit")
 let proximoGranPremioNoDisputado = null
 
 
@@ -12,13 +12,13 @@ window.addEventListener('DOMContentLoaded', function (){
     
     for (const granPremio of granPremiosF1) {
         if (granPremio.disputado == false) {
-        proximoGranPremioNoDisputado = granPremio; 
+        proximoGranPremioNoDisputado = granPremio
         break
         }
     }    
     proxCarreraLabel.textContent = proximoGranPremioNoDisputado.nombre
     descProxCarreraLabel.innerHTML = `CIRCUITO: ${proximoGranPremioNoDisputado.desc}<br>
-    LONGITUD: ${proximoGranPremioNoDisputado.longitud} metros<br>`;  
+    LONGITUD: ${proximoGranPremioNoDisputado.longitud} metros<br>`
     imagen.src = `../imgCircuits/${proximoGranPremioNoDisputado.desc}.jpg` 
     
     
