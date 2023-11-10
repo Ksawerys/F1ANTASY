@@ -1,4 +1,4 @@
-import { GranPremio } from "./Clases.js";
+import { GranPremio } from "./Clases.js"
 
 export const granPremiosF1 = [
     new GranPremio(1, 'Gran Premio de Baherin','Shakir',6299, [], false),

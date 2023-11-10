@@ -6,7 +6,7 @@ let inputNick = document.getElementById('nick')
 let inputEmail = document.getElementById('email')
 let inputPassword = document.getElementById('password')
 let inputPasswordVerified = document.getElementById('passwordVerified')
-let botonRegistrarse = document.getElementById("registrarsePulsado");
+let botonRegistrarse = document.getElementById("registrarsePulsado")
 
 
 
@@ -113,7 +113,6 @@ botonRegistrarse.addEventListener("click", function() {
         let usuario = new Persona(inputNombre.value,inputApellido.value,inputNick.value,inputEmail.value,inputPassword.value,[],0)
 
         localStorage.setItem("user",JSON.stringify(usuario))
-        // console.log("Persona guardada correctamente")
         window.location.href = "../PantallaInicial.html"
     }
     
