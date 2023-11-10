@@ -1,0 +1,130 @@
+$font-family: Arial, sans-serif;
+$primary-color: red;
+$shadow-color: rgba(17, 12, 46, 0.15);
+
+body {
+    font-family: $font-family;
+}
+
+.dropdown{
+    z-index: 4;
+}
+
+.custom-logo {
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 2px 2px white;
+    margin-left: 12%;
+    font-size: 16vw;
+
+    .first-letter {
+        color: $primary-color;
+    }
+}
+
+#icon {
+    cursor: pointer;
+    z-index: 4;
+    top: 0;
+}
+
+#container-navbar {
+    header {
+        box-shadow: $shadow-color 0px 48px 100px 0px;
+    }
+
+    user-select: none;
+    top: 0;
+    z-index: 3;
+.nav {
+        z-index: 999;
+
+        a {
+            color: $primary-color;
+
+            &:hover {
+                color: rgb(0, 0, 0);
+            }
+        }
+    }
+}
+
+
+          .card-small {
+              width: 12rem;
+              height: auto; 
+          }
+          .card{
+                  transition: transform 0.8s ease;
+      
+                }
+                .card:hover {
+                    transform: scale(1.1); 
+                    transition: transform 0.8s ease; 
+                }
+            
+              .card {
+                  width: 12rem; 
+                  height: auto; 
+              }
+
+
+footer {
+  background-color: $primary-color;
+  box-shadow: rgba(0, 0, 1, 0.1) 0px -20px 40px, rgba(0, 0, 1, 0.1) 0px 20px 40px;
+  color: #fff;
+  padding: 0;
+  margin-bottom: 2%;
+  text-align: center;
+  align-items: center;
+  height: 30vh;
+
+  .container {
+      margin-left: 8%;
+  }
+
+
+  .red-social-link,
+  a {
+      margin: 10px;
+      font-size: 34px;
+      text-decoration: none;
+      transition: color 0.4s;
+
+      &:hover {
+          color: white;
+      }
+  }
+
+  a {
+      color: #330000;
+      font-size: 17px;
+
+      &:hover {
+          color: #ffffff;
+      }
+  }
+
+  h4 {
+      font-style: italic;
+      font-weight: bold;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+          margin-bottom: 10px;
+      }
+  }
+}
+@media screen and (max-width: 993px) {
+  footer {
+    margin-bottom: 0;
+    height: auto;
+  }
+}
