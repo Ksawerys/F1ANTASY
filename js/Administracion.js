@@ -2,6 +2,16 @@
 let botonLanzarCarrera = document.getElementById("lanzarCarreraButton")
 
 
+
+document.getElementById('lanzarCarreraButton').addEventListener('click', function () {
+    var video = document.getElementById('videoFondo')
+    var alertDiv = document.querySelector('.alert')
+    alertDiv.style.display = 'block'
+    alertDiv.style.opacity = 1
+    video.classList.toggle('sin-filtro')
+    lanzarCarreraButton.remove()
+});
+
 botonLanzarCarrera.addEventListener('click',function(){
     let listGP = JSON.parse(localStorage.getItem("carreras"))
     let listPilots = JSON.parse(localStorage.getItem("pilotos"))
@@ -36,7 +46,8 @@ botonLanzarCarrera.addEventListener('click',function(){
     }
 
     if (!encontrado) {
-        alert("no quedan carreras por disputar.");
+        var alertDiv = document.querySelector('.alert')
+        alertDiv.innerText = "No quedan mas carreras por disputar";
     }
 
     posicionesCarrera.forEach((piloto, index) => {

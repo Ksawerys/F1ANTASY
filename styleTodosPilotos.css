@@ -2,6 +2,10 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.dropdown {
+  z-index: 4;
+}
+
 .custom-logo {
   font-weight: bold;
   font-style: italic;
@@ -31,7 +35,6 @@ body {
 }
 #container-navbar .nav {
   z-index: 999;
-  width: 100%;
 }
 #container-navbar .nav a {
   color: red;
@@ -40,21 +43,23 @@ body {
   color: rgb(0, 0, 0);
 }
 
-.container-cards {
-  justify-content: space-around;
-  min-height: 100vh;
-  margin-left: 20%;
-}
-.container-cards .card {
-  transition: transform 0.8s ease;
+.card-small {
   width: 12rem;
   height: auto;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
 }
-.container-cards .card:hover {
+
+.card {
+  transition: transform 0.8s ease;
+}
+
+.card:hover {
   transform: scale(1.1);
   transition: transform 0.8s ease;
+}
+
+.card {
+  width: 12rem;
+  height: auto;
 }
 
 footer {
@@ -108,4 +113,4 @@ footer ul li {
     margin-bottom: 0;
     height: auto;
   }
-}/*# sourceMappingURL=stylesPilotos.css.map */
+}/*# sourceMappingURL=styleTodosPilotos.css.map */
