@@ -1,3 +1,7 @@
+window.onload = function () {
+    document.body.style.zoom = "90%"
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const personas = [
         JSON.parse(localStorage.getItem("user")),
