@@ -9,6 +9,12 @@ const imagen = document.getElementById("imagenCircuit")
 let proximoGranPremioNoDisputado = null
 
 
+
+window.onload = function () {
+    document.body.style.zoom = "90%"
+};
+  
+
 document.addEventListener('DOMContentLoaded', function (){
     let listGP = JSON.parse(localStorage.getItem("carreras"))
     let listPilots = JSON.parse(localStorage.getItem("pilotos"))

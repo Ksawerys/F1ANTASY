@@ -1,15 +1,13 @@
-
-
-
+window.onload = function () {
+    document.body.style.zoom = "90%"
+};
 
 
 window.addEventListener('DOMContentLoaded', function (){    
-    //Objetios localStorage
     let pilotosList = JSON.parse(localStorage.getItem("pilotos"))
     
     let usuario = JSON.parse(localStorage.getItem("user"))
 
-    //Elementos HTML
     const buttonRol1 = document.getElementById("botonRol1")
     const buttonRol2 = document.getElementById("botonRol2")
     let pilotoImg = document.getElementById("pilotoImg")    

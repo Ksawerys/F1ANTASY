@@ -19,6 +19,10 @@ body {
   top: 0;
 }
 
+.dropdown {
+  z-index: 5;
+}
+
 #container-navbar {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -30,7 +34,7 @@ body {
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 #container-navbar .nav {
-  z-index: 999;
+  z-index: 3;
   width: 100%;
 }
 #container-navbar .nav a {
@@ -107,5 +111,8 @@ footer ul li {
   footer {
     margin-bottom: 0;
     height: auto;
+  }
+  #container-navbar {
+    background-color: none;
   }
 }/*# sourceMappingURL=stylesPilotos.css.map */

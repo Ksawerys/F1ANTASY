@@ -23,6 +23,9 @@ body {
     z-index: 4;
     top: 0;
 }
+.dropdown{
+    z-index: 5;
+}
 
 #container-navbar {
     header {
@@ -32,8 +35,8 @@ body {
     top: 0;
     z-index: 3;
 .nav {
-        z-index: 999;
-width: 100%;
+        z-index: 3;
+        width: 100%; 
         a {
             color: $primary-color;
 
@@ -43,6 +46,7 @@ width: 100%;
         }
     }
 }
+
 
 .container-cards {
   justify-content: space-around;
@@ -122,5 +126,8 @@ footer {
   footer {
     margin-bottom: 0;
     height: auto;
+  }
+  #container-navbar{
+    background-color: none;
   }
 }

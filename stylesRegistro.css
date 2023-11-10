@@ -12000,10 +12000,6 @@ textarea.form-control-lg {
   background: transparent;
 }
 
-/* $body-bg: #ffffff;
-$body-color: #ff0000;
-$btn-primary-bg: #ff0000;
-$btn-primary-color: #ffffff; */
 .container {
   margin-top: 20px;
   margin-right: 0px;
@@ -12012,7 +12008,7 @@ $btn-primary-color: #ffffff; */
 .login-form {
   max-width: 400px;
   margin-top: 0 auto;
-  padding: 20px 20px 40px 20px; /* Arriba 10px, derecha 20px, abajo 15px, izquierda 30px */
+  padding: 20px 20px 40px 20px;
   border-radius: 5px;
   border: 1px solid transparent;
   transition: border 0.4s;

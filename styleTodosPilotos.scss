@@ -50,23 +50,20 @@ body {
 }
 
 
-          .card-small {
-              width: 12rem;
-              height: auto; 
-          }
-          .card{
-                  transition: transform 0.8s ease;
-      
-                }
-                .card:hover {
-                    transform: scale(1.1); 
-                    transition: transform 0.8s ease; 
-                }
             
-              .card {
-                  width: 12rem; 
-                  height: auto; 
-              }
+.card{
+    transition: transform 0.8s ease;
+}
+
+.card:hover {
+    transform: scale(1.05); 
+    transition: transform 0.8s ease; 
+}
+
+.card {
+    width: 13rem; 
+    height: auto; 
+}
 
 
 footer {
